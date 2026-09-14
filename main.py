@@ -1,15 +1,5 @@
 from turtle import *
 
-# janela = Screen()
-# janela.listen()
-
-# bgcolor("#BBFF7C")
-
-# cobra = Turtle()
-# cobra.color("#000000")
-# cobra.fillcolor("#2B80FF")
-# cobra.shapesize(3)
-# cobra.forward(30)
 screen = Screen()
 screen.bgcolor("#96FF6D")
 
@@ -17,7 +7,8 @@ cobra = Turtle()
 cobra.color("#000000")
 cobra.fillcolor("#0F78DA")
 cobra.begin_fill()
-cobra.shapesize(1.5)
+cobra.shapesize(1)
+cobra.shape("square")
 
 direcao = "r"
 def r():
