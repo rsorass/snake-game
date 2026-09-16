@@ -14,15 +14,15 @@ maca.color("#000000")
 maca.fillcolor("#FF0000")
 maca.begin_fill()
 maca.shape("circle")
-maca.shapesize(2)
+maca.shapesize(3)
 maca.penup()
-maca.teleport(random.randint(-400,400), random.randint(-400,400))
+maca.teleport(random.randint(-400,400), random.randint(-300,300))
 
 cobra = Turtle()
 cobra.color("#000000")
 cobra.fillcolor("#0F78DA")
 cobra.begin_fill()
-cobra.shapesize(2.5)
+cobra.shapesize(4.5)
 cobra.shape("square")
 cobra.penup()
 
@@ -54,15 +54,19 @@ def dwn():
         print("Indo para baixo.")
 
 def comer():
-    if cobra.distance(maca) < 20:
+    if cobra.distance(maca) < 80:
         novo_corpo = Turtle()
         novo_corpo.shape("square")
-        novo_corpo.color("#0F78DA")
-        novo_corpo.shapesize(2.5)
+        novo_corpo.color("#000000")
+        novo_corpo.fillcolor("#0F78DA")
+        novo_corpo.begin_fill()
+        novo_corpo.shapesize(4.5)
         novo_corpo.penup()
+        ultimo_corpo_pos = tamanho_corpo[-1].pos()
         tamanho_corpo.append(novo_corpo)
-        novo_corpo.goto(1000,1000)
-        maca.teleport(random.randint(-400,400), random.randint(-400,400))
+        ## * DESEMPACOTA VALORES GUARDADOS EM TUPLAS ##
+        novo_corpo.teleport(*ultimo_corpo_pos)
+        maca.teleport(random.randint(-400,400), random.randint(-300,300))
 
 onkey(r, "Right")
 screen.listen()
@@ -76,6 +80,7 @@ screen.listen()
 while 1 < 2:
     for i in range(len(tamanho_corpo)-1, 0, -1):
         tamanho_corpo[i].goto(tamanho_corpo[i - 1].position())
+
 
     comer()
 
